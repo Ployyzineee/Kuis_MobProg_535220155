@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Aplikasi Belanja',
       theme: ThemeData(
-        primarySwatch: Colors.red, // Warna utama AppBar
+        primarySwatch: Colors.red, 
       ),
       home: ShoppingApp(),
     );
@@ -27,28 +27,23 @@ class _ShoppingAppState extends State<ShoppingApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Tombol back dan judul AppBar
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Tambahkan aksi saat tombol back ditekan
             print('Tombol Back Ditekan');
           },
         ),
-        title: Text('Godrej'), // Judul AppBar
+        title: Text('Godrej'), 
         actions: [
-          // Ikon Search dan Keranjang
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              // Tambahkan aksi saat tombol search ditekan
               print('Tombol Search Ditekan');
             },
           ),
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              // Tambahkan aksi saat tombol keranjang ditekan
               print('Tombol Keranjang Ditekan');
             },
           ),
@@ -56,26 +51,22 @@ class _ShoppingAppState extends State<ShoppingApp> {
       ),
       body: Column(
         children: [
-          // Blok persegi panjang di bawah AppBar
           Container(
             margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             padding: EdgeInsets.all(16.0),
-            color: Colors.grey[200], // Warna latar belakang blok
+            color: Colors.grey[200], 
             child: Row(
               children: [
-                // Logo di sebelah kanan
                 Container(
-                  width: 80.0, // Lebar logo
-                  height: 80.0, // Tinggi logo
+                  width: 80.0, 
+                  height: 80.0, 
                   decoration: BoxDecoration(
-                    color: Colors.blue, // Warna latar belakang logo
+                    color: Colors.blue, 
                     borderRadius: BorderRadius.circular(40.0),
                   ),
-                  // Ganti dengan logo yang sesuai
                   child: Icon(Icons.shop, color: Colors.white),
                 ),
-                SizedBox(width: 16.0), // Spasi antara logo dan teks
-                // Nama "Godrej"
+                SizedBox(width: 16.0), 
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -86,7 +77,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
                         fontSize: 18.0,
                       ),
                     ),
-                    // Pengikut dan ikon orang di sebelah kiri
                     Row(
                       children: [
                         Icon(Icons.person),
@@ -95,25 +85,22 @@ class _ShoppingAppState extends State<ShoppingApp> {
                       ],
                     ),
                     SizedBox(height: 4.0),
-                    // Tombol Mengikuti dan ikon share
                     Row(
                       children: [
                         ElevatedButton.icon(
                           onPressed: () {
-                            // Tambahkan aksi saat tombol Mengikuti ditekan
                             print('Tombol Mengikuti Ditekan');
                           },
                           icon: Icon(Icons.person_add),
                           label: Text('Mengikuti'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.green, // Warna tombol Mengikuti
+                            primary: Colors.green, 
                           ),
                         ),
                         SizedBox(width: 8.0),
                         IconButton(
                           icon: Icon(Icons.share),
                           onPressed: () {
-                            // Tambahkan aksi saat ikon share ditekan
                             print('Ikon Share Ditekan');
                           },
                         ),
@@ -124,7 +111,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
               ],
             ),
           ),
-          // Judul Kategori
           Container(
             padding: EdgeInsets.all(16.0),
             child: Column(
@@ -139,7 +125,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
                 ),
                 SizedBox(height: 8.0),
 
-                // 4 Grid Kategori
                 GridView.builder(
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -149,10 +134,8 @@ class _ShoppingAppState extends State<ShoppingApp> {
                   ),
                   itemCount: 4,
                   itemBuilder: (context, index) {
-                    // Ganti dengan widget atau kode sesuai kebutuhan Anda
                     return GestureDetector(
                       onTap: () {
-                        // Tambahkan aksi saat kategori diklik
                         print('Kategori $index diklik');
                       },
                       child: Container(
@@ -173,7 +156,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
             ),
           ),
 
-          // Blok Transparan "Promosi", "Nama Produk", dan "Terlaris"
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -183,7 +165,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
             ],
           ),
 
-          // Daftar Produk
           Expanded(
             child: ListView.builder(
               itemCount: items.length,
@@ -191,7 +172,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
                 return ListTile(
                   title: Text(items[index]),
                   onTap: () {
-                    // Implementasi tindakan ketika item diklik
                     showItemDetails(context, items[index]);
                   },
                 );
@@ -206,7 +186,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
   Widget buildTransparentBlock(String title) {
     return GestureDetector(
       onTap: () {
-        // Tambahkan aksi saat blok diklik
         print('Blok $title diklik');
       },
       child: Container(
